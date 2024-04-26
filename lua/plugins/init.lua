@@ -1,4 +1,7 @@
 return {
+    {
+        "rebelot/kanagawa.nvim",
+    },
 	{
 		"cacharle/c_formatter_42.vim",
 		config = function() end,
@@ -10,8 +13,19 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
     },
+    {
+        "L3MON4D3/LuaSnip",
+    },
+    {
+        "saadparwaiz1/cmp_luasnip",
+    },
     { 
-        "nvim-lspconfig",
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("plugins.lsp.nvim-lspconfig")
+        end,
+        dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
     },
     {
         "williamboman/mason.nvim",

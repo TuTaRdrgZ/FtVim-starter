@@ -33,6 +33,5 @@ require("lazy").setup {
   checker = { enabled = true, notify = false }, -- automatically check for plugin updates
 }
 
-colorscheme = function()
-    require("tokyonight").load()
-end
+vim.cmd("colorscheme kanagawa-dragon") --kanagawa-(dragon, wave, lotus)
+                                       --tokyonight(storm, night, moon, day)
