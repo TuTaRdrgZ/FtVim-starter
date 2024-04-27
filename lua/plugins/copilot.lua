@@ -11,9 +11,12 @@ return {
           panel = { enabled = false },
     },
     {
-          "zbirenbaum/copilot-cmp",
-          config = function ()
-            require("copilot_cmp").setup()
-          end
+      "zbirenbaum/copilot-cmp",
+      dependencies = "copilot.lua",
+      opts = {},
+      config = function(_, opts)
+        local copilot_cmp = require("copilot_cmp")
+        copilot_cmp.setup(opts)
+      end,
     }
 }

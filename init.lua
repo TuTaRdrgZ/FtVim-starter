@@ -30,8 +30,7 @@ require("lazy").setup {
     -- import/override with your plugins
     { import = "plugins" },
   },
-  checker = { enabled = true, notify = false }, -- automatically check for plugin updates
+  checker = { enabled = true, notify = true }, -- automatically check for plugin updates
 }
 
 vim.cmd("colorscheme kanagawa-dragon") --kanagawa-(dragon, wave, lotus)
-                                       --tokyonight(storm, night, moon, day)
