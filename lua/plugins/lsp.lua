@@ -23,10 +23,7 @@ return {
 
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = {
-                "lua_ls",
-                "clangd",
-            },
+            auto_install = true,
             handlers = {
                 function(server_name) -- default handler (optional)
 
@@ -34,22 +31,7 @@ return {
                         capabilities = capabilities
                     }
                 end,
-
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-				    runtime = { version = "Lua 5.1" },
-                                diagnostics = {
-                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                                }
-                            }
-                        }
-                    }
-                end,
-            }
+               }
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -57,7 +39,7 @@ return {
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    require('luasnip').lsp_expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({

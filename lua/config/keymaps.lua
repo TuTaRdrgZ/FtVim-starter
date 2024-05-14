@@ -5,8 +5,6 @@ vim.g.maplocalleader = " "
 
 local map = vim.keymap.set
 
-map("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
-
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
